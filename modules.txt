@@ -1,0 +1,52 @@
+Module Plan:
+
+1. Read File Module as pgmRead
+Read pgm file, assigns them to the heap (and pgmImage structure) and outputs the memory address of the pgm file to the module that requested it.
+Checks for errors and outputs the error code and requests the error string from error Handling.
+
+2. Write File Module
+Write and creates the pgm files based on parameters.
+Can write the ASCII header separately or with the imageData.
+Checks for errors and outputs the error code and requests the error string from error Handling.
+
+3. Error handing Module
+Centralises all the error codes and error handling. Takes the name of the function and the error code and calls the appropriate output string.
+
+4. pgmEcho
+Takes in a pgm file and outputs that same file under a specified output file name
+Checks for errors and calls error handling module to prints error strings.
+
+5. pgmComp
+Takes two pgm file names as arguments, reads them in and tests whether they are logically identical. Calls error handling module if error occurs. Reads the images supplied using read module.
+
+6. pgma2b
+Converts the ASCII form image to the binary representation. Calls error handling module if error occurs. Reads the files using read module and writes the output using write module.
+
+7. pgmb2a
+Converts the binary form image to the ASCII representation.Calls error handling module if error occurs. Reads the files using read module and writes the output using write module.
+
+8. pgmReduce
+Takes 3 arguments:
+	1.an input file (either ASCII or binary)
+	2. an integer factor n, and
+	3. an output file
+and reduces the input file by that factor in each dimension. Calls error handling module if error occurs. Reads the files using read module and writes the output using write module.
+
+9. Check correct values Module
+Check if correct parameter length is supplied and if they are of the right type. If not, returns an error code. The module that called it will decide what to do with this information. Contains checks for various other modules.
+
+10. pgmAssemble
+Can be used to assemble a large image from smaller ones. It should take 3n+3 arguments of which the first three are:
+1. an output file name
+2. width of the output image
+3. height of the output image
+and the remainder are the layout: triples of:
+3i+1. row at which the subimage starts
+3i+2. column at which the subimage starts
+3i+3. The subimage to insert at that location
+Calls error handling module if error occurs. Uses read module and write module for reading, writing respectively.
+
+
+13. pgmTile
+Takes 3 arguments, an input file (either ASCII or binary), an integer factor n, and an output file name template. It should divide the input file into nxn smaller images corresponding to parts of the image. 
+Calls error handling module if error occurs.

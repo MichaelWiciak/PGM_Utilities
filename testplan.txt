@@ -1,0 +1,12 @@
+Test Plan:
+
+The tests will be automated using the .sh file.
+A group of individual tests for each module will be made.
+These tests will cover:
+1. Does the module report errors and whether it does it correctly
+2. Does the module interact with different modules as intended
+3. Does it behave correctly during edge cases and invalid inputs
+4. Are the outputs of the module what is expected
+
+All the test for every module will be specified in the .sh file and run every time by the programmer to ensure changes in one module do not have a negative affect in the different modules.
+The output of each test states whether the test has been successful or not, and specify what was the error.
